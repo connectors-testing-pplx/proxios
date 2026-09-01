@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  repo-health:
+    name: Repository health check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Health check
+        run: |
+          echo "Repository: ${{ github.repository }}"
+          if [ -f "README.md" ] || [ -f "README.rst" ] || [ -f "README.txt" ]; then
+            echo "README present"
+          else
+            echo "README missing"
+          fi
+          echo "Bootstrap health check complete."
