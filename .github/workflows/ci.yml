@@ -2,26 +2,27 @@ name: CI
 
 on:
   push:
-    branches: ["**"]
+    branches: [main, dev]
   pull_request:
-    branches: ["**"]
-  workflow_dispatch:
-
-permissions:
-  contents: read
+    branches: [main]
 
 jobs:
-  repo-health:
-    name: Repository health check
+  backend-lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Health check
-        run: |
-          echo "Repository: ${{ github.repository }}"
-          if [ -f "README.md" ] || [ -f "README.rst" ] || [ -f "README.txt" ]; then
-            echo "README present"
-          else
-            echo "README missing"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install ruff
+      - run: ruff check backend/
+
+  frontend-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          if grep -r "TODO\|FIXME\|PLACEHOLDER" frontend/; then
+            echo "Unresolved placeholders found"
+            exit 1
           fi
-          echo "Bootstrap health check complete."
