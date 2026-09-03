@@ -1,49 +1,58 @@
-# proxios
+# PeroxiOS
 
-The operating system for peroxisome science. An open-access, AI-powered peroxisome research intelligence platform.
+> The operating system for peroxisome science.
 
-> Status: This repository is under active development. Repository structure and
-> documentation are being initialized and will expand as the project matures.
+PeroxiOS is an open-access, AI-powered research intelligence platform built on peroxisome biology literature. Ask questions. Get cited, synthesized answers. Discover connections across thousands of papers.
 
-## Overview
+**A [PBD Project](https://pbdproject.org) initiative.**
 
-The operating system for peroxisome science. An open-access, AI-powered peroxisome research intelligence platform.
+## What it does
 
-## Features
+- Natural language queries over a curated corpus of peroxisome research papers
+- Two modes: **Explore** (plain language) and **Deep Dive** (expert reasoning)
+- Every answer cites its source papers (PMC IDs)
+- Built on PMC open-access literature — legally redistributable, continuously growing
 
-- _(to be documented as the project develops)_
+## Tech Stack
 
-## Getting Started
+| Layer | Technology |
+|---|---|
+| Frontend | Static HTML/CSS/JS |
+| Backend | Python, FastAPI |
+| Orchestration | LangChain |
+| Embeddings | sentence-transformers (all-MiniLM-L6-v2) |
+| Vector DB | ChromaDB |
+| AI | Anthropic Claude (claude-opus-4-5) with prompt caching |
+| Paper Source | PMC Open-Access Subset |
+
+## Quick Start
 
 ```bash
-git clone https://github.com/connectors-testing-pplx/proxios.git
-cd proxios
+cd backend
+pip install -r requirements.txt
+cp .env.example .env  # add ANTHROPIC_API_KEY
+python -m uvicorn app:app --reload
 ```
 
-Refer to the documentation within this repository for setup, configuration, and
-usage instructions.
+Open `frontend/index.html` in a browser, or serve with any static file server.
 
-## Project Structure
+## Architecture
 
-```
-proxios/
-├── README.md
-├── CONTRIBUTING.md
-└── .github/
-    ├── ISSUE_TEMPLATE/
-    └── workflows/
-```
+See [docs/architecture.md](docs/architecture.md) for system diagrams, data flow, and token optimization strategy.
 
-## Contributing
+## Roadmap
 
-Contributions are welcome. Please open an issue first to discuss what you would
-like to change, then submit a pull request. See `CONTRIBUTING.md` and the issue
-templates for guidance.
+- [x] Phase 0: Repo structure
+- [x] Phase 1: Frontend MVP
+- [x] Phase 2: Backend RAG pipeline
+- [ ] Phase 3: PMC corpus ingestion (~500 papers)
+- [ ] Phase 4: Deploy to Vercel (frontend) + Fly.io or Railway (backend)
+- [ ] Phase 5: Closed corpus for PBD Project internal use
+
+## About PBD Project
+
+PBD Project is a nonprofit advancing peroxisome science. Founded by Andrew Longenecker after his son Diego's diagnosis with PEX10 Zellweger Spectrum Disorder. [pbdproject.org](https://pbdproject.org)
 
 ## License
 
-No license is specified yet. Add a LICENSE file to clarify usage and redistribution terms.
-
-## Contact
-
-Open an issue in this repository for questions, feedback, or bug reports.
+MIT License — open source. Paper corpus subject to PMC-OA license terms.
