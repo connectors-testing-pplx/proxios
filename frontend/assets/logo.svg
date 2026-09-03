@@ -1,0 +1,12 @@
+<svg viewBox="0 0 200 48" xmlns="http://www.w3.org/2000/svg" aria-label="PeroxiOS">
+  <!-- Hexagonal peroxisome icon -->
+  <polygon points="18,4 30,4 36,14 30,24 18,24 12,14" fill="none" stroke="#01696f" stroke-width="2"/>
+  <circle cx="24" cy="14" r="4" fill="none" stroke="#01696f" stroke-width="1.5"/>
+  <circle cx="24" cy="5" r="1.5" fill="#01696f"/>
+  <circle cx="24" cy="23" r="1.5" fill="#01696f"/>
+  <circle cx="11" cy="14" r="1.5" fill="#01696f"/>
+  <circle cx="37" cy="14" r="1.5" fill="#01696f"/>
+  <!-- Wordmark -->
+  <text x="46" y="19" font-family="'Work Sans', sans-serif" font-size="18" font-weight="600" fill="#28251d">Perox<tspan fill="#01696f">i</tspan>OS</text>
+  <text x="46" y="32" font-family="'Work Sans', sans-serif" font-size="9" fill="#7a7974" letter-spacing="1">PEROXISOME INTELLIGENCE</text>
+</svg>

@@ -1,0 +1,11 @@
+/*
+ * PeroxiOS — main.css
+ * 
+ * The primary frontend uses inline styles in index.html for the MVP.
+ * This file provides additional utility classes and overrides that can
+ * be linked separately when the frontend grows beyond a single page.
+ *
+ * Design tokens mirror those defined inline in index.html.
+ */
+
+/* Placeholder for future multi-page styles */
